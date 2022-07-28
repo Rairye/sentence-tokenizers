@@ -64,14 +64,14 @@ public class Tokenizer {
 
         while (j < paragraphLength) {
                 String currentChar = paragraph.substring(j, j+1);
-                var currentCategory = isBreak(currentChar) == true ? "BREAK" : "NOTBREAK";
+                String currentCategory = isBreak(currentChar) == true ? "BREAK" : "NOTBREAK";
 				
                 if (lastCategory == "BREAK" && currentCategory == "NOTBREAK") {
                     
                         if (!(isClosingPunct(currentChar) && !(isNumeric(currentChar)))) {
                                 sentences.add(paragraph.substring(i, j).trim());
                                 lastCategory = "";
-								currentCategory = "";
+				currentCategory = "";
                                 i = j;
                                 j++;
 								
